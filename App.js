@@ -11,47 +11,47 @@ function App() {
     {
       firstName: 'Owais',
       id: 1,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
     {
       firstName: 'Bhatti',
       id: 2,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
     {
       firstName: 'Iqra',
       id: 3,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
     {
       firstName: 'Usama',
       id: 4,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
     {
       firstName: 'Javeria',
       id: 5,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
     {
       firstName: 'Ridah',
       id: 6,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
     {
       firstName: 'Amber',
       id: 7,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
     {
       firstName: 'Sajeel',
       id: 8,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
     {
       firstName: 'Samra',
       id: 9,
-      ProfileImage: require('./assets/images/avatar.png'),
+      profileImage: require('./assets/images/avatar.png'),
     },
   ];
   return (
@@ -75,7 +75,7 @@ function App() {
           renderItem={({ item }) => (
             <UserStory
               firstName={item.firstName}
-              ProfileImage={item.ProfileImage}
+              profileImage={item.profileImage}
             />
           )}
           keyExtractor={item => item.id.toString()}

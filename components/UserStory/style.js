@@ -1,4 +1,4 @@
-import { height } from '@fortawesome/free-solid-svg-icons/fa0';
+// import { height } from '@fortawesome/free-solid-svg-icons/fa0';
 import { StyleSheet } from 'react-native';
 const style = StyleSheet.create({
   styleContainer: {
