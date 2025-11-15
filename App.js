@@ -38,6 +38,14 @@ function App() {
     setIsLoadingUserStories(false);
   }, []);
 
+  useEffect(() => {
+    setIsLoadingUserPost(true);
+    console.log('setLoading', setIsLoadingUserStories);
+    const getInitialDataPost = pagination(userPosts, 1, userPostPageSize);
+    setUserPostRendered(getInitialDataPost);
+    setIsLoadingUserPost(false);
+  }, []);
+
   const userStoriesData = [
     {
       firstName: 'Owais',
@@ -207,7 +215,6 @@ function App() {
                   data={userStoriesRendered}
                   renderItem={({ item }) => (
                     <UserStory
-                      key={'UserStory' + item.id}
                       firstName={item.firstName}
                       profileImage={item.profileImage}
                     />
@@ -218,7 +225,29 @@ function App() {
             </>
           }
           showsVerticalScrollIndicator={false}
-          data={userPosts}
+          onEndReachedThreshold={0.5}
+          onEndReached={() => {
+            if (isLoadingUserPost) {
+              return;
+            }
+
+            setIsLoadingUserPost(true);
+
+            const contentToAppend = pagination(
+              userPosts,
+              userPostCurrentPage + 1,
+              userPostPageSize,
+            );
+
+            if (contentToAppend.length > 0) {
+              setUserPostCurrentPage(userPostCurrentPage + 1);
+
+              setUserPostRendered(prev => [...prev, ...contentToAppend]);
+            }
+
+            setIsLoadingUserPost(false);
+          }}
+          data={userPostRendered}
           renderItem={({ item }) => (
             <UserPost
               firstName={item.firstName}
